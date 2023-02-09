@@ -25,8 +25,8 @@ export default function Root() {
     },
     palette: {
       primary: {
-        main: "#3aeb34",
-        contrastText: "#ffffff",
+        main: "#d3e4f2",
+        contrastText: "#f79e45",
       },
     },
   });
