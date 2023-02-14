@@ -15,7 +15,7 @@ function App() {
           <div className="flex-1 flex justify-end"></div>
            {/* 주소가 main일때 즉 sub1이 아니면 서브1 버튼이 뜬다 */}
            {location.pathname != "/write" && 
-            <NavLink to="/write" className="select-none">작성</NavLink>
+            <NavLink to="/write" className="select-none">작성하기</NavLink>
            }
            {/* 주소가 sub1일때 즉 main이 아니면 이전 버튼이 뜬다 */}
            {location.pathname == "/write" && 
