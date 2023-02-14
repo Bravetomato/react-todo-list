@@ -1,10 +1,16 @@
 import { TextField, Button } from "@mui/material";
+import { useNavigate, useParams } from "react-router-dom";
 import { useNoticeSnackbarStatus } from "../components/NoticeSnackbar";
 import { useTodosStatus } from "../hooks";
 
-export default function WritePage() {
+export default function EditPage() {
+  const navigate = useNavigate();
+  const { id } = useParams();
+
   const noticeSnackbarStatus = useNoticeSnackbarStatus();
   const todosStatus = useTodosStatus();
+
+  const todo = todosStatus.findTodoById(id);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -25,13 +31,19 @@ export default function WritePage() {
       return;
     }
 
-    const newTodoId = todosStatus.addTodo(
+    const newTodoId = todosStatus.modifyTodoById(
+      todo.id,
       form.regDate.value,
       form.content.value
     );
 
-    noticeSnackbarStatus.open(`${newTodoId}번 할일이 수정되었습니다.`);
+    noticeSnackbarStatus.open(`${todo.Id}번 할일이 수정되었습니다.`);
+    
+    navigate(-1);
+    // 뒤로가기
   };
+
+  const regDateForInput = todo.regDate.substr(0, 16).replace("", "T");
 
   return (
     <>
@@ -41,6 +53,7 @@ export default function WritePage() {
           focused
           type="datetime-local"
           name="regDate"
+          dafaultValue={regDateForInput}
         />
         <TextField
           name="content"
@@ -49,6 +62,7 @@ export default function WritePage() {
           InputProps={{ className: "flex-1 flex-col" }}
           inputProps={{ className: "flex-1" }}
           multiline
+          defaultvalue={todo.content}
         />
         <Button type="submit" variant="contained">
           <span>
