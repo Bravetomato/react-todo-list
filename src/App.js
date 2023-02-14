@@ -9,6 +9,8 @@ import {
 
 import MainPage from "./pages/MainPage";
 import WritePage from "./pages/WritePage";
+import EditPage from "./pages/EditPage";
+
 import { NoticeSnackbar } from "./components/NoticeSnackbar";
 
 function App() {
@@ -28,7 +30,7 @@ function App() {
             )}
             {location.pathname == "/write" && (
               <NavLink to="/main" className="select-none">
-                이전
+                목록
               </NavLink>
             )}
           </div>
@@ -38,6 +40,7 @@ function App() {
       <Routes>
         <Route path="/main" element={<MainPage />} />
         <Route path="/write" element={<WritePage />} />
+        <Route path="/edit/:id" element={<EditPage />} />
         <Route path="*" element={<Navigate to="/main" />} />
       </Routes>
     </>
