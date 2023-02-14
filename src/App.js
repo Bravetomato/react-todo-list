@@ -21,14 +21,14 @@ function App() {
       <AppBar position="static">
         <Toolbar>
           <div className="flex-1"></div>
-          <span className="font-bold select-none">이름</span>
+          <span className="font-bold select-none">할일 체크하기</span>
           <div className="flex-1 flex justify-end">
-            {location.pathname != "/write" && (
+            {location.pathname == "/main" && (
               <NavLink to="/write" className="select-none">
-                글쓰기
+                할일 작성
               </NavLink>
             )}
-            {location.pathname == "/write" && (
+            {location.pathname != "/main" && (
               <NavLink to="/main" className="select-none">
                 목록
               </NavLink>
