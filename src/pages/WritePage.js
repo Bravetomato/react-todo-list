@@ -1,48 +1,63 @@
 import { TextField, Button } from "@mui/material";
+import { useNoticeSnackbarStatus } from "../components/NoticeSnackbar";
 import { useTodosStatus } from "../hooks";
 
-
-// TextField 사용해서 할일 작성하기 
-// type="datetime-local" : 연도, 월, 일, 시간 작성가능.
 export default function WritePage() {
+  const noticeSnackbarStatus = useNoticeSnackbarStatus();
   const todosStatus = useTodosStatus();
+
   const onSubmit = (e) => {
     e.preventDefault();
 
     const form = e.target;
 
-    if(form.regDate.value.length == 0) {
-      alert("날짜를 작성해주세요");
+    if (form.regDate.value.length == 0) {
+      alert("날짜를 입력해주세요.");
       form.regDate.focus();
 
       return;
     }
 
-    if(form.regDate.value.length == 0) {
-      alert("할일을 작성해주세요");
-      form.regDate.focus();
+    if (form.content.value.length == 0) {
+      alert("내용을 입력해주세요.");
+      form.content.focus();
 
       return;
     }
 
-    todosStatus.addTodo(form.regDate.value, form.content.value);
+    const newTodoId = todosStatus.addTodo(
+      form.regDate.value,
+      form.content.value
+    );
+
+    noticeSnackbarStatus.open(`${newTodoId}번 할일이 추가되었습니다.`);
   };
 
-    return (
-      <>
-        <form className="flex-1 flex p-10 flex-col gap-7" ionSubmit={onSubmit}>
-                <TextField label="날짜" type="datetime-local" name="regDate"/>
-                <TextField label="할일" className="flex-1 flex" 
-                InputProps={{ className : "flex-1 flex-col"}} 
-                inputProps={{ className : "flex-1 flex"}} 
-                multiline/>
-                <Button type="submit" variant="outlined">
-                  <span>
-                  <i className="fa-solid fa-pen-to-square"></i>
-                    할일 추가
-                  </span>
-                </Button>
-        </form>
-      </>
-    );
-  }
+  return (
+    <>
+      <form className="flex-1 flex p-10 flex-col gap-7" onSubmit={onSubmit}>
+        <TextField
+          label="언제 해야 하나요?"
+          focused
+          type="datetime-local"
+          name="regDate"
+        />
+        <TextField
+          name="content"
+          label="무엇을 해야하나요?"
+          className="flex-1 flex"
+          InputProps={{ className: "flex-1 flex-col" }}
+          inputProps={{ className: "flex-1" }}
+          multiline
+        />
+        <Button type="submit" variant="contained">
+          <span>
+            <i className="fa-solid fa-pen"></i>
+          </span>
+          <span>&nbsp;</span>
+          <span>할 일 추가</span>
+        </Button>
+      </form>
+    </>
+  );
+}
