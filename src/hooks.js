@@ -42,11 +42,10 @@ export function useTodosStatus() {
   };
 
   const modifyTodo = (index, regDate, content) => {
-
     const newTodos = produce(todos, (draft) => {
       draft[index].regDate = dateToStr(new Date(regDate));
       draft[index].content = content;
-    })
+    });
 
     setTodos(newTodos);
   };

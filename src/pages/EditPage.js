@@ -1,5 +1,5 @@
 import { TextField, Button } from "@mui/material";
-import { useNavigate, useParams } from "react-router-dom";
+import { Navigate, useNavigate, useParams } from "react-router-dom";
 import { useNoticeSnackbarStatus } from "../components/NoticeSnackbar";
 import { useTodosStatus } from "../hooks";
 
@@ -37,13 +37,12 @@ export default function EditPage() {
       form.content.value
     );
 
-    noticeSnackbarStatus.open(`${todo.Id}번 할일이 수정되었습니다.`);
-    
+    noticeSnackbarStatus.open(`${todo.id}번 할 일이 수정되었습니다.`);
+
     navigate(-1);
-    // 뒤로가기
   };
 
-  const regDateForInput = todo.regDate.substr(0, 16).replace("", "T");
+  const regDateForInput = todo.regDate.substr(0, 16).replace(" ", "T");
 
   return (
     <>
@@ -53,7 +52,7 @@ export default function EditPage() {
           focused
           type="datetime-local"
           name="regDate"
-          dafaultValue={regDateForInput}
+          defaultValue={regDateForInput}
         />
         <TextField
           name="content"
@@ -62,7 +61,7 @@ export default function EditPage() {
           InputProps={{ className: "flex-1 flex-col" }}
           inputProps={{ className: "flex-1" }}
           multiline
-          defaultvalue={todo.content}
+          defaultValue={todo.content}
         />
         <Button type="submit" variant="contained">
           <span>
