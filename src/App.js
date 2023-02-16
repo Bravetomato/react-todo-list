@@ -23,16 +23,15 @@ function App() {
     <>
       <AppBar position="static">
         <Toolbar>
-          <div className="flex-1"></div>
-          <span className="font-bold select-none">할일 체크하기</span>
-          <div className="flex-1 flex justify-end">
+          {/* 할일 관리하기 클릭시 메인페이지로 돌아가기 */}
+          <NavLink to="/main" className="font-bold select-none self-stretch flex items-center mr-auto">할일 관리하기</NavLink>
             {location.pathname == "/main" && (
-              <NavLink to="/write" className="select-none">
+              <NavLink to="/write" className="select-none self-stretch flex items-center">
                 할일 작성
               </NavLink>
             )}
             {location.pathname != "/main" && (
-              <NavLink to="/main" className="select-none">
+              <NavLink to="/main" className="select-none self-stretch flex items-center cursor-pointer">
                 {/* 수정 중 목록 버튼 클릭시 이전 페이지 */}
                 <span
                 to="/main"
@@ -41,7 +40,7 @@ function App() {
               >목록</span>
               </NavLink>
             )}
-          </div>
+          
         </Toolbar>
       </AppBar>
       <NoticeSnackbar />

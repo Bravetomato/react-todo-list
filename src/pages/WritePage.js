@@ -38,7 +38,7 @@ export default function WritePage() {
 
   return (
     <>
-      <form className="flex-1 flex p-10 flex-col gap-7" onSubmit={onSubmit}>
+      <form className="flex-1 flex p-10 flex-col gap-7 p-5 sm:p-8" onSubmit={onSubmit}>
         <TextField
           label="언제 해야 하나요?"
           focused

@@ -56,7 +56,7 @@ export default function TodoList() {
         return a.id < b.id ? 1 : -1;
       });
     } 
-    
+
    return filteredTodos;
 };
 
@@ -152,7 +152,8 @@ export default function TodoList() {
           value={3}
         />
       </Tabs>
-      <div className="mt-4 px-4">
+      {/* tailwind sm : 스크린창 크기 변화 시 padding 효과 주기 위해*/}
+      <div className="px-5 pb-6 sm:px-8 pb-10">
         <ul>
           {sortedTodos.map((todo, index) => (
             <TodoListItem
