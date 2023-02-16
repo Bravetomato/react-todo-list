@@ -31,11 +31,36 @@ export default function TodoList() {
 
   // 작성탭의 급해요, 널널해요, 작성순 정렬을 위해서 
   // sort() 함수 : ()안에 값을 받아 비교해 정렬해준다. defalut는 오름차순.
-  const sortedTodos = [...filteredTodos].sort((a, b) => {
-    if ( a.performDate == b.performDate ) return 0;
+  // const sortedTodos = [...filteredTodos].sort((a, b) => {
+  //   if ( a.performDate == b.performDate ) return 0;
 
-    return a.performDate < b.performDate ? 1 : -1;
-  });
+  //   return a.performDate < b.performDate ? 1 : -1;
+  // });
+
+  // 급한일, 널널한일, 작성 오름차순 탭 정렬 구현하기.
+  const getSortedTodos = () => {
+    if ( sortIndex == 0 ) {
+      return [...filteredTodos].sort((a, b) => {
+        if ( a.performDate == b.performDate ) return 0;
+
+        return a.performDate < b.performDate ? 1 : -1;
+      });
+    } else if (sortIndex == 1) {
+      return [...filteredTodos].sort((a, b) => {
+        if ( a.performDate == b.performDate ) return 0;
+
+        return a.performDate < b.performDate ? 1 : -1;
+      });
+    } else if ( sortIndex == 2 ) {
+      return [...filteredTodos].sort((a, b) => {
+        return a.id < b.id ? 1 : -1;
+      });
+    } 
+    
+   return filteredTodos;
+};
+
+  const sortedTodos = getSortedTodos();
 
   return (
     <>

@@ -5,6 +5,7 @@ import {
   Navigate,
   useLocation,
   NavLink,
+  useNavigate,
 } from "react-router-dom";
 
 import MainPage from "./pages/MainPage";
@@ -14,6 +15,8 @@ import EditPage from "./pages/EditPage";
 import { NoticeSnackbar } from "./components/NoticeSnackbar";
 
 function App() {
+  // 수정 중 목록 버튼 클릭시 이전 페이지
+  const navigate = useNavigate();
   const location = useLocation();
 
   return (
@@ -30,7 +33,12 @@ function App() {
             )}
             {location.pathname != "/main" && (
               <NavLink to="/main" className="select-none">
-                목록
+                {/* 수정 중 목록 버튼 클릭시 이전 페이지 */}
+                <span
+                to="/main"
+                className="select-none"
+                onClick={() => navigate(-1)}
+              >목록</span>
               </NavLink>
             )}
           </div>
