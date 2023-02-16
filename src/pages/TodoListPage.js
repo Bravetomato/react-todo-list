@@ -123,7 +123,7 @@ export default function TodoList() {
           label={
             <span className="flex items-baseline">
               <i className="fa-regular fa-clock mr-2"></i>
-              <span className="mr-2 whitespace-nowrap">널럴해요</span>
+              <span className="mr-2 whitespace-nowrap">여유있어요</span>
               <i className="fa-solid fa-sort-down relative top-[-3px]"></i>
             </span>
           }
