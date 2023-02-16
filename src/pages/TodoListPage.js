@@ -29,6 +29,14 @@ export default function TodoList() {
 
   const filteredTodos = getFliteredTodos();
 
+  // 작성탭의 급해요, 널널해요, 작성순 정렬을 위해서 
+  // sort() 함수 : ()안에 값을 받아 비교해 정렬해준다. defalut는 오름차순.
+  const sortedTodos = [...filteredTodos].sort((a, b) => {
+    if ( a.performDate == b.performDate ) return 0;
+
+    return a.performDate < b.performDate ? 1 : -1;
+  });
+
   return (
     <>
       <TodoOptionDrawer status={todoOptionDrawerStatus} />
@@ -121,7 +129,7 @@ export default function TodoList() {
       </Tabs>
       <div className="mt-4 px-4">
         <ul>
-          {filteredTodos.map((todo, index) => (
+          {sortedTodos.map((todo, index) => (
             <TodoListItem
               key={todo.id}
               todo={todo}
