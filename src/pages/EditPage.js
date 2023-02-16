@@ -68,7 +68,8 @@ export default function EditPage() {
             <i className="fa-solid fa-pen"></i>
           </span>
           <span>&nbsp;</span>
-          <span>할 일 수정</span>
+          {/* 할 일 수정 앞에 몇 번째 할일 인지 표시하기 */}
+          <span>{todo.id}번 할 일 수정</span>
         </Button>
       </form>
     </>
