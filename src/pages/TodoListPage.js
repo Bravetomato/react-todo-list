@@ -29,7 +29,7 @@ export default function TodoList() {
 
   const filteredTodos = getFliteredTodos();
 
-  // 작성탭의 급해요, 널널해요, 작성순 정렬을 위해서 
+  // 작성탭의 급해요, 여유있어요, 작성순 정렬을 위해서 
   // sort() 함수 : ()안에 값을 받아 비교해 정렬해준다. defalut는 오름차순.
   // const sortedTodos = [...filteredTodos].sort((a, b) => {
   //   if ( a.performDate == b.performDate ) return 0;
@@ -37,7 +37,7 @@ export default function TodoList() {
   //   return a.performDate < b.performDate ? 1 : -1;
   // });
 
-  // 급한일, 널널한일, 작성 오름차순 탭 정렬 구현하기.
+  // 급한일, 여유있는일, 작성 오름차순 탭 정렬 구현하기.
   const getSortedTodos = () => {
     if ( sortIndex == 0 ) {
       return [...filteredTodos].sort((a, b) => {
@@ -99,7 +99,7 @@ export default function TodoList() {
           value={2}
         />
       </Tabs>
-      {/* 정렬 탭: 급해요, 널럴해요, 작성순 */}
+      {/* 정렬 탭: 급해요, 여유있어요요, 작성순 */}
       <Tabs
         variant="scrollable"
         value={sortIndex}
