@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 # 할일관리 사이트 https://bravetomato.github.io/project_TodoList/
 
 ## html, css, react, tailwind, MUI 사용
@@ -20,6 +19,4 @@
    - Routes, Route, Navigate, useLocation, NavLink, useNavigate 사용
 
 ---
-=======
-# https://bravetomato.github.io/project_TodoList/
->>>>>>> 09c8ace5a2dc176447a431939a3d5b9f082a1c92
+
