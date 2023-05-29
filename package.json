@@ -1,6 +1,10 @@
 {
   "name": "react-todo-list",
+<<<<<<< HEAD
   "homepage": "https://Bravetomato.github.io/project_TodoList",
+=======
+  "homepage": "https://bravetomato.github.io/project_TodoList/",
+>>>>>>> 09c8ace5a2dc176447a431939a3d5b9f082a1c92
   "version": "0.1.0",
   "private": true,
   "dependencies": {
